@@ -219,7 +219,10 @@ class MyDialog(QWidget):
             [item[0] for item in cur.execute("SELECT pack_name FROM pack").fetchall()])
 
         # self.tableWidget.itemChanged.connect(self.save_results)
-
+        self.lineEdit.setText('Новый сорт')
+        self.lineEdit_2.setText('Новый вкус')
+        self.lineEdit_3.setText('0')
+        
         self.modified = {}
         self.titles = None
         self.in_stroka_tab = stroka
