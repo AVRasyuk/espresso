@@ -75,7 +75,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_4">
            <property name="text">
-            <string>Выбрать по обънму упаковки</string>
+            <string>Выбрать по объему упаковки</string>
            </property>
           </widget>
          </item>
@@ -86,12 +86,26 @@
          <item>
           <widget class="QPushButton" name="pushButton">
            <property name="text">
-            <string>Выбрать по всем параметрам - Степень обжарки, Молотый / в зернах, Обънм упаковки</string>
+            <string>Выбрать по всем параметрам - Степень обжарки, Молотый / в зернах, Объем упаковки</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QTableWidget" name="tableWidget"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="text">
+            <string>Редактировать выделенную</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="text">
+            <string>Добавить новую запись</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
