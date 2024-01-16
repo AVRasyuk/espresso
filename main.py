@@ -3,13 +3,16 @@ import sys
 
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QDialog, QWidget, QVBoxLayout, QLabel
+from ui_main import Ui_MainWindow
+from ui_addEditCoffeeForm import Ui_Form
 
 
-class MyWidget(QMainWindow):
+class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
-        self.con = sqlite3.connect("coffee.sqlite")
+        # uic.loadUi('main.ui', self)
+        self.setupUi(self)
+        self.con = sqlite3.connect("data/coffee.sqlite")
         cur = self.con.cursor()
         self.comboBox.addItems(
             [item[0] for item in cur.execute("SELECT roasting_name FROM roasting").fetchall()])
@@ -194,10 +197,12 @@ class MyWidget(QMainWindow):
                 self.tableWidget.setItem(i, j, QTableWidgetItem(str(val)))
 
 
-class MyDialog(QWidget):
+class MyDialog(QWidget, Ui_Form):
     def __init__(self, stroka):
         super().__init__()
-        uic.loadUi("addEditCoffeeForm.ui", self)
+        # uic.loadUi("addEditCoffeeForm.ui", self)
+        self.setupUi(self)
+
 
         if stroka:
             self.pushButton.setVisible(False)
@@ -209,7 +214,7 @@ class MyDialog(QWidget):
 
         self.pushButton.clicked.connect(self.add_new)
         self.pushButton_2.clicked.connect(self.update_change)
-        self.con = sqlite3.connect("coffee.sqlite")
+        self.con = sqlite3.connect("data/coffee.sqlite")
         cur = self.con.cursor()
         self.comboBox.addItems(
             [item[0] for item in cur.execute("SELECT roasting_name FROM roasting").fetchall()])
